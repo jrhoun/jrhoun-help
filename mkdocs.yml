@@ -1,1 +1,4 @@
 site_name: Learn Liferay
+theme: readthedocs
+repo_url: https://github.com/jrhoun/jrhoun-help/
+edit_uri: edit/read-the-docs-testing/docs

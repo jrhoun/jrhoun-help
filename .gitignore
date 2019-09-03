@@ -21,3 +21,4 @@ test-results/
 tmp/
 **/bundles
 .markdownlint.json
+site/
