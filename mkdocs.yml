@@ -1,4 +1,22 @@
+# Project Information
 site_name: Learn Liferay
-theme: readthedocs
+
+# Repository
 repo_url: https://github.com/jrhoun/jrhoun-help/
 edit_uri: edit/read-the-docs-testing/docs
+
+# Copyright
+copyright: 'Copyright &copy; 2019 - Liferay, Inc.'
+
+# Configuration
+theme: mkdocs
+
+# Navigation
+
+# nav:
+#   - Home: index.md
+#   - Analytics Cloud: /analytics-cloud/index.md
+#   - Commerce: /commerce/README.md
+#   - DXP: /dxp/index.md
+#   - DXP Cloud: /dxp-cloud/index.md
+#   - Other Projects: /other-projects/index.md
