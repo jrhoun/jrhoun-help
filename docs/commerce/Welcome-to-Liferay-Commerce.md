@@ -12,7 +12,7 @@ Liferay Commerce is a digital commerce platform built from the ground up to meet
 * [APIs and Integrations](#apis-and-integrations)
 * [Next Steps](#next-steps)
 
-Just want to get started? Launch Liferay Commerce _fast_ with our [Quick Start Guide](../../../installation-and-upgrades/quick-start-guide/README.md).
+Just want to get started? Launch Liferay Commerce _fast_ with our [Quick Start Guide](../installation-and-upgrades/quick-start-guide).
 
 ## Modern Storefront Pages and Content Management
 
@@ -26,7 +26,7 @@ Liferay Commerce contains a catalog management system that supports a variety of
 
 ![Catalog](./images/02.png)
 
-[Channels](../../catalog/creating-and-managing-products/channels/introduction-to-channels/README.md) connect catalogs and products to any place products are sold: a Liferay Commerce based storefront, third party marketplaces, or even back office phone sales.
+[Channels](../user-guide/catalog/introduction-to-channels/) connect catalogs and products to any place products are sold: a Liferay Commerce based storefront, third party marketplaces, or even back office phone sales.
 
 ![Product Information and Channels](./images/03.png)
 
@@ -63,6 +63,5 @@ Integrate with other business systems through a Mulesoft connector, Talend compo
 
 ## Next Steps
 
-* [Quick Start Guide](../../../installation-and-upgrades/quick-start-guide/README.md)
-* [Setup a Complete B2B Site Using the Minium Accelerator](../../getting-started/accelerators/using-the-minium-accelerator-to-jump-start-your-b2b-store/README.md)
-* Learn What's New in Liferay Commerce 2.0.4
+* [Quick Start Guide](../installation-and-upgrades/quick-start-guide)
+* [Store Setup Overview](../user-guide/getting-started/store-setup-overview)
