@@ -1,5 +1,6 @@
 # Project Information
-site_name: Learn Liferay
+site_name: Liferay Learn
+site_description: Liferay Learn - Intuitive, Readable, and Practical Resources for Learning Liferay
 
 # Repository
 repo_url: https://github.com/jrhoun/jrhoun-help/
@@ -9,14 +10,32 @@ edit_uri: edit/read-the-docs-testing/docs
 copyright: 'Copyright &copy; 2019 - Liferay, Inc.'
 
 # Configuration
-theme: mkdocs
+theme: 
+  name: material
+  palette:
+    primary: 'indigo'
+    accent: 'indigo'
+  # logo:
+  #     icon: 'menu_book'
+  #     logo: 'images/liferay-logo-full-color.svg'
+  favicon: 'images/favicon.ico'
+  feature:
+    tabs: true
 
 # Navigation
 
 # nav:
-#   - Home: index.md
-#   - Analytics Cloud: /analytics-cloud/index.md
-#   - Commerce: /commerce/README.md
-#   - DXP: /dxp/index.md
-#   - DXP Cloud: /dxp-cloud/index.md
-#   - Other Projects: /other-projects/index.md
+  # - Liferay Learn: 'README.md'
+  # - Analytics Cloud: analytics-cloud/README.md
+  # - Commerce: 
+  #     - Getting Started: commerce/README.md
+  #     - User Guide: commerce/user-guide/README.md
+  #     - Developer Guide: commerce/developer-guide/README.md
+  #     - Installation and Upgrades: commerce/installation-and-upgrades/README.md
+  #     - Get Help: commerce/get-help/README.md
+  # - DXP: 
+  #     - Getting Started: dxp/README.md
+  # - DXP Cloud: 
+  #     - Getting Started: dxp-cloud/README.md
+  # - Other Projects: 
+  #     - Getting Started: other-projects/README.md
