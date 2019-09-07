@@ -1,0 +1,1778 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Liferay Learn - Intuitive, Readable, and Practical Resources for Learning Liferay">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Adding a New Product Type - Liferay Learn</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#adding-a-new-product-type" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="Liferay Learn" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Liferay Learn
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Adding a New Product Type
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/jrhoun/jrhoun-help/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../analytics-cloud/" class="md-tabs__link">
+          Analytics cloud
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../welcome-to-liferay-commerce/" class="md-tabs__link md-tabs__link--active">
+          Commerce
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../dxp/" class="md-tabs__link">
+          Dxp
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../dxp-cloud/" class="md-tabs__link">
+          Dxp cloud
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../other-projects/" class="md-tabs__link">
+          Other projects
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="Liferay Learn" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Liferay Learn
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/jrhoun/jrhoun-help/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Analytics cloud
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Analytics cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../analytics-cloud/" title="Welcome to Analytics Cloud" class="md-nav__link">
+      Welcome to Analytics Cloud
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Commerce
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Commerce
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../welcome-to-liferay-commerce/" title="Welcome to Liferay Commerce" class="md-nav__link">
+      Welcome to Liferay Commerce
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Developer guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Developer guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Introduction to the Liferay Commerce Developer Guide" class="md-nav__link">
+      Introduction to the Liferay Commerce Developer Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-2" type="checkbox" id="nav-3-2-2" checked>
+    
+    <label class="md-nav__link" for="nav-3-2-2">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-2">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Adding a New Product Type
+      </label>
+    
+    <a href="./" title="Adding a New Product Type" class="md-nav__link md-nav__link--active">
+      Adding a New Product Type
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-an-example" class="md-nav__link">
+    Deploy an Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#walk-through-the-example" class="md-nav__link">
+    Walk Through the Example
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#annotate-the-product-type-class-for-osgi-registration" class="md-nav__link">
+    Annotate the Product Type Class for OSGi Registration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-the-cptype-interface" class="md-nav__link">
+    Review the CPType Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annotate-the-screen-navigation-entry-class-for-osgi-registration" class="md-nav__link">
+    Annotate the Screen Navigation Entry Class for OSGi Registration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-the-screennavigationcategory-interface" class="md-nav__link">
+    Review the ScreenNavigationCategory Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-the-screennavigationentry-interface" class="md-nav__link">
+    Review the ScreenNavigationEntry Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-the-product-type" class="md-nav__link">
+    Complete the Product Type
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-servletcontext-for-the-module" class="md-nav__link">
+    Configure the ServletContext for the Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement-the-screennavigationentrys-render-method" class="md-nav__link">
+    Implement the ScreenNavigationEntry's render Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#override-the-screennavigationentrys-isvisible-method" class="md-nav__link">
+    Override the ScreenNavigationEntry's isVisible Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-product-type-deletion-logic-to-deletecpdefinition" class="md-nav__link">
+    Add the Product Type Deletion Logic to deleteCPDefinition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-jsp-to-render-the-custom-screen" class="md-nav__link">
+    Add a JSP to Render the Custom Screen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-language-key-to-languageproperties" class="md-nav__link">
+    Add the Language Key to Language.properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-information" class="md-nav__link">
+    Additional Information
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../implementing-a-custom-checkout-step/" title="Implementing a Custom Checkout Step" class="md-nav__link">
+      Implementing a Custom Checkout Step
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Get help
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Get help
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../get-help/" title="Get Help" class="md-nav__link">
+      Get Help
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-2" type="checkbox" id="nav-3-3-2">
+    
+    <label class="md-nav__link" for="nav-3-3-2">
+      Commerce enterprise support
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-2">
+        Commerce enterprise support
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../get-help/commerce-enterprise-support/liferay-commerce-fix-delivery-method/" title="Liferay Commerce Fix Delivery Method" class="md-nav__link">
+      Liferay Commerce Fix Delivery Method
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Installation and upgrades
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Installation and upgrades
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../installation-and-upgrades/quick-start-guide/" title="Quick Start Guide" class="md-nav__link">
+      Quick Start Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4-2" type="checkbox" id="nav-3-4-2">
+    
+    <label class="md-nav__link" for="nav-3-4-2">
+      Installation guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-4-2">
+        Installation guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../installation-and-upgrades/installation-guide/deploying-liferay-commerce-to-an-existing-liferay-installation/" title="Deploying Liferay Commerce to an Existing Liferay Installation" class="md-nav__link">
+      Deploying Liferay Commerce to an Existing Liferay Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../installation-and-upgrades/installation-guide/installation-overview/" title="Installation Overview" class="md-nav__link">
+      Installation Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../installation-and-upgrades/installation-guide/using-the-liferay-commerce-tomcat-bundle/" title="Using the Liferay Commerce Tomcat Bundle" class="md-nav__link">
+      Using the Liferay Commerce Tomcat Bundle
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4-3" type="checkbox" id="nav-3-4-3">
+    
+    <label class="md-nav__link" for="nav-3-4-3">
+      Upgrades and updates
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-4-3">
+        Upgrades and updates
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../installation-and-upgrades/upgrades-and-updates/maintenance-versions/" title="Maintenance Versions" class="md-nav__link">
+      Maintenance Versions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../installation-and-upgrades/upgrades-and-updates/upgrading-from-liferay-commerce-1.1.x/" title="Upgrading from Liferay Commerce 1.1.x" class="md-nav__link">
+      Upgrading from Liferay Commerce 1.1.x
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      User guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        User guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-1" type="checkbox" id="nav-3-5-1">
+    
+    <label class="md-nav__link" for="nav-3-5-1">
+      Catalog
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-5-1">
+        Catalog
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../user-guide/catalog/introduction-to-channels/" title="Introduction to Channels" class="md-nav__link">
+      Introduction to Channels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../user-guide/catalog/introduction-to-product-types/" title="Introduction to Product Types" class="md-nav__link">
+      Introduction to Product Types
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-2" type="checkbox" id="nav-3-5-2">
+    
+    <label class="md-nav__link" for="nav-3-5-2">
+      Content
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-5-2">
+        Content
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../user-guide/content/creating-your-storefront/" title="Creating Your Storefront" class="md-nav__link">
+      Creating Your Storefront
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-3" type="checkbox" id="nav-3-5-3">
+    
+    <label class="md-nav__link" for="nav-3-5-3">
+      Customers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-5-3">
+        Customers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../user-guide/customers/introduction-to-accounts/" title="Introduction to Accounts" class="md-nav__link">
+      Introduction to Accounts
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-4" type="checkbox" id="nav-3-5-4">
+    
+    <label class="md-nav__link" for="nav-3-5-4">
+      Getting started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-5-4">
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../user-guide/getting-started/accelerators/" title="Accelerators" class="md-nav__link">
+      Accelerators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../user-guide/getting-started/store-setup-overview/" title="Store Setup Overview" class="md-nav__link">
+      Store Setup Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../user-guide/getting-started/using-the-minium-accelerator-to-jump-start-a-b2b-store/" title="Using the Minium Accelerator to Jump-Start a B2B Store" class="md-nav__link">
+      Using the Minium Accelerator to Jump-Start a B2B Store
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-5" type="checkbox" id="nav-3-5-5">
+    
+    <label class="md-nav__link" for="nav-3-5-5">
+      Marketing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-5-5">
+        Marketing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../user-guide/marketing/automating-store-emails-by-using-notification-templates/" title="Automating Store Emails by Using Notification Templates" class="md-nav__link">
+      Automating Store Emails by Using Notification Templates
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-6" type="checkbox" id="nav-3-5-6">
+    
+    <label class="md-nav__link" for="nav-3-5-6">
+      Operations
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-5-6">
+        Operations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../user-guide/operations/creating-tax-categories/" title="Creating Tax Categories" class="md-nav__link">
+      Creating Tax Categories
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-7" type="checkbox" id="nav-3-5-7">
+    
+    <label class="md-nav__link" for="nav-3-5-7">
+      Sales
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-5-7">
+        Sales
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../user-guide/sales/order-life-cycle/" title="Order Life Cycle" class="md-nav__link">
+      Order Life Cycle
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Dxp
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Dxp
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../dxp/" title="Welcome to DXP" class="md-nav__link">
+      Welcome to DXP
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Dxp cloud
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Dxp cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../dxp-cloud/" title="Welcome to DXP Cloud" class="md-nav__link">
+      Welcome to DXP Cloud
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Other projects
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Other projects
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../other-projects/" title="Other Liferay Projects" class="md-nav__link">
+      Other Liferay Projects
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-an-example" class="md-nav__link">
+    Deploy an Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#walk-through-the-example" class="md-nav__link">
+    Walk Through the Example
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#annotate-the-product-type-class-for-osgi-registration" class="md-nav__link">
+    Annotate the Product Type Class for OSGi Registration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-the-cptype-interface" class="md-nav__link">
+    Review the CPType Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annotate-the-screen-navigation-entry-class-for-osgi-registration" class="md-nav__link">
+    Annotate the Screen Navigation Entry Class for OSGi Registration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-the-screennavigationcategory-interface" class="md-nav__link">
+    Review the ScreenNavigationCategory Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-the-screennavigationentry-interface" class="md-nav__link">
+    Review the ScreenNavigationEntry Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-the-product-type" class="md-nav__link">
+    Complete the Product Type
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-servletcontext-for-the-module" class="md-nav__link">
+    Configure the ServletContext for the Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement-the-screennavigationentrys-render-method" class="md-nav__link">
+    Implement the ScreenNavigationEntry's render Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#override-the-screennavigationentrys-isvisible-method" class="md-nav__link">
+    Override the ScreenNavigationEntry's isVisible Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-product-type-deletion-logic-to-deletecpdefinition" class="md-nav__link">
+    Add the Product Type Deletion Logic to deleteCPDefinition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-jsp-to-render-the-custom-screen" class="md-nav__link">
+    Add a JSP to Render the Custom Screen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-language-key-to-languageproperties" class="md-nav__link">
+    Add the Language Key to Language.properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-information" class="md-nav__link">
+    Additional Information
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jrhoun/jrhoun-help/edit/read-the-docs-testing/docs/commerce/developer-guide/tutorials/adding-a-new-product-type.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="adding-a-new-product-type">Adding a New Product Type</h1>
+<p>This tutorial will show you how to add a new product type by implementing three interfaces: <a href="https://github.com/liferay/com-liferay-commerce/blob/2.0.4/commerce-product-api/src/main/java/com/liferay/commerce/product/type/CPType.java">CPType</a>, <a href="https://github.com/liferay/liferay-portal/blob/7.1.3-ga4/modules/apps/frontend-taglib/frontend-taglib/src/main/java/com/liferay/frontend/taglib/servlet/taglib/ScreenNavigationCategory.java">ScreenNavigationCategory</a>, and <a href="https://github.com/liferay/liferay-portal/blob/7.1.3-ga4/modules/apps/frontend-taglib/frontend-taglib/src/main/java/com/liferay/frontend/taglib/servlet/taglib/ScreenNavigationEntry.java">ScreenNavigationEntry</a>.</p>
+<p>Product types can be used to group products that share similar characteristics. Liferay Commerce provides three product types out-of-the-box: <a href="https://github.com/liferay/com-liferay-commerce/blob/2.0.4/commerce-product-type-simple/src/main/java/com/liferay/commerce/product/type/simple/internal/SimpleCPType.java">Simple</a>, <a href="https://github.com/liferay/com-liferay-commerce/blob/2.0.4/commerce-product-type-grouped-web/src/main/java/com/liferay/commerce/product/type/grouped/web/internal/GroupedCPType.java">Grouped</a>, and <a href="https://github.com/liferay/com-liferay-commerce/blob/2.0.4/commerce-product-type-virtual-web/src/main/java/com/liferay/commerce/product/type/virtual/web/internal/VirtualCPType.java">Virtual</a>.</p>
+<p><img alt="Out-of-the-box product types" src="images/01.png" title="Out-of-the-box product types" /></p>
+<h2 id="overview">Overview</h2>
+<ol>
+<li><a href="#deploy-an-example"><strong>Deploy an Example</strong></a></li>
+<li><a href="#walk-through-the-example"><strong>Walk Through the Example</strong></a></li>
+<li><a href="#additional-information"><strong>Additional Information</strong></a></li>
+</ol>
+<h2 id="deploy-an-example">Deploy an Example</h2>
+<p>In this section, we will get an example product type up and running on your instance of Liferay Commerce. Follow these steps:</p>
+<ol>
+<li>
+<p>Start Liferay Commerce.</p>
+<p><code>bash
+docker run -it -p 8080:8080 liferay/commerce:2.0.4</code></p>
+</li>
+<li>
+<p>Download and unzip <a href="./adding-a-new-product-type/liferay-c1n4.zip">Acme Commerce Product Type</a>.</p>
+<p><code>bash
+curl liferay-c1n4.zip</code></p>
+<p><code>bash
+unzip liferay-c1n4.zip</code></p>
+</li>
+<li>
+<p>Go to <code>liferay-c1n4</code>.</p>
+<p><code>bash
+cd liferay-c1n4</code></p>
+</li>
+<li>
+<p>Build and deploy the example.</p>
+<p><code>bash
+./gradlew deploy -Ddeploy.docker.container.id=$(docker ps -lq)</code></p>
+<blockquote>
+<p><strong>Note:</strong> This command is the same as copying the deployed jars to /opt/liferay/osgi/modules on the Docker container.</p>
+</blockquote>
+</li>
+<li>
+<p>Confirm the deployment in the Liferay Docker container console.</p>
+<p><code>bash
+STARTED com.acme.c1n4.web_1.0.0</code></p>
+</li>
+<li>
+<p>Verify that the example product type was added. Open your browser to <code>https://localhost:8080</code> and navigate to <em>Control Panel</em> → <em>Commerce</em> → <em>Products</em>. Then, click on the (+) icon to add a new product. The new product type ("Example") will be present in the list of types to choose from.</p>
+</li>
+</ol>
+<p><img alt="New product type" src="images/02.png" title="New product type" /></p>
+<p>Congratulations, you've successfully built and deployed a new product type that implements <code>CPType</code>.</p>
+<p>Next, let's dive deeper to learn more.</p>
+<h2 id="walk-through-the-example">Walk Through the Example</h2>
+<p>In this section, we will review the example we deployed. We will create two classes: a product type class and a screen navigation entry class for a custom screen. Walk through the following:</p>
+<ul>
+<li><a href="#annotate-the-product-type-class-for-osgi-registration">Annotate the Product Type Class for OSGi Registration</a></li>
+<li><a href="#review-the-cptype-interface">Review the <code>CPType</code> Interface</a></li>
+<li><a href="#annotate-the-screen-navigation-entry-class-for-osgi-registration">Annotate the Screen Navigation Entry Class for OSGi Registration</a></li>
+<li><a href="#review-the-screennavigationcategory-interface">Review the <code>ScreenNavigationCategory</code> Interface</a></li>
+<li><a href="#review-the-screennavigationentry-interface">Review the <code>ScreenNavigationEntry</code> Interface</a></li>
+<li><a href="#complete-the-product-type">Complete the Product Type</a></li>
+</ul>
+<h3 id="annotate-the-product-type-class-for-osgi-registration">Annotate the Product Type Class for OSGi Registration</h3>
+<p>Our product type class implements the <code>CPType</code> interface:</p>
+<pre><code class="java">@Component(
+    immediate = true,
+    property = {
+        &quot;commerce.product.type.display.order:Integer=16&quot;,
+        &quot;commerce.product.type.name=&quot; + C1N4CPType.NAME
+    },
+    service = CPType.class
+)
+public class C1N4CPType implements CPType {
+
+    public static final String NAME = &quot;Example&quot;;
+</code></pre>
+
+<blockquote>
+<p>The product type name must be a unique value so that Liferay Commerce can distinguish our product type from existing product types.</p>
+<p>The <code>commerce.product.type.display.order</code> value indicates how far into the list of product types our product type will appear in the UI. For example, the <a href="https://github.com/liferay/com-liferay-commerce/blob/2.0.4/commerce-product-type-virtual-web/src/main/java/com/liferay/commerce/product/type/virtual/web/internal/VirtualCPType.java">virtual product type</a> has a value of 15. Giving our product type a value of 16 ensures that it will appear immediately after the virtual type.</p>
+</blockquote>
+<h3 id="review-the-cptype-interface">Review the <code>CPType</code> Interface</h3>
+<p>Implement the following methods of <code>CPType</code> in the product type class:</p>
+<pre><code class="java">public void deleteCPDefinition(long cpDefinitionId) throws PortalException;
+</code></pre>
+
+<blockquote>
+<p>This method is where any custom deletion logic for the product type will be added.</p>
+</blockquote>
+<pre><code class="java">public String getLabel(Locale locale);
+</code></pre>
+
+<blockquote>
+<p>This returns a text label that describes the product type. See the implementation in <a href="liferay-c1n4.zip/c1n4-web/src/main/java/com/acme/c1n4/web/internal/commerce/product/type/C1N4CPType.java">C1N4CPType.java</a> for a reference in retrieving the label with a language key.</p>
+</blockquote>
+<pre><code class="java">public String getName();
+</code></pre>
+
+<blockquote>
+<p>This returns the name of our product type. This name may be a language key that corresponds to the name that will appear in the UI.</p>
+</blockquote>
+<h3 id="annotate-the-screen-navigation-entry-class-for-osgi-registration">Annotate the Screen Navigation Entry Class for OSGi Registration</h3>
+<p>Our screen navigation entry class implements both the <code>ScreenNavigationCategory</code> and <code>ScreenNavigationEntry</code> interfaces:</p>
+<pre><code class="java">@Component(
+    property = {
+        &quot;screen.navigation.category.order:Integer=11&quot;,
+        &quot;screen.navigation.entry.order:Integer=11&quot;
+    },
+    service = {ScreenNavigationCategory.class, ScreenNavigationEntry.class}
+)
+public class C1N4ScreenNavigationEntry
+    implements ScreenNavigationCategory, ScreenNavigationEntry&lt;CPDefinition&gt; {
+
+    public static final String KEY = &quot;Example&quot;;
+</code></pre>
+
+<blockquote>
+<p>It is important to provide a distinct key for the navigation screen class so that Liferay Commerce can distinguish it as a separate screen from the existing screens. Reusing a key that is already in use will override the existing associated navigation screen.</p>
+<p>The <code>screen.navigation.category.order</code> and <code>screen.navigation.entry.order</code> values determine what position in the product type screens this screen will appear. For example, <a href="https://github.com/liferay/com-liferay-commerce/blob/2.0.4/commerce-product-definitions-web/src/main/java/com/liferay/commerce/product/definitions/web/internal/servlet/taglib/ui/CPDefinitionDetailsScreenNavigationEntry.java">the Details screen class</a> has these values set to 10; setting them to 11 will ensure that our custom screen appears after it in the list.</p>
+</blockquote>
+<h3 id="review-the-screennavigationcategory-interface">Review the <code>ScreenNavigationCategory</code> Interface</h3>
+<p>Implement the following methods in the screen navigation entry class:</p>
+<pre><code class="java">public String getCategoryKey();
+</code></pre>
+
+<blockquote>
+<p>This returns a unique identifier for the category used for the screen navigation entry.</p>
+</blockquote>
+<pre><code class="java">public String getLabel(Locale var1);
+</code></pre>
+
+<blockquote>
+<p>This returns a text label for the screen navigation entry that will be displayed in the UI. See the implementation in <a href="liferay-c1n4.zip/c1n4-web/src/main/java/com/acme/c1n4/web/internal/servlet/taglib/ui/C1N4ScreenNavigationEntry.java">C1N4ScreenNavigationEntry.java</a> for a reference in retrieving the label with a language key.</p>
+</blockquote>
+<pre><code class="java">public String getScreenNavigationKey();
+</code></pre>
+
+<blockquote>
+<p>This returns a key to indicate where our screen should appear in Liferay. Return the string value <code>"cp.definition.general"</code> so it properly appears among the other screens for products.</p>
+</blockquote>
+<h3 id="review-the-screennavigationentry-interface">Review the <code>ScreenNavigationEntry</code> Interface</h3>
+<p>Continue to build on the screen navigation entry class with the following methods:</p>
+<pre><code class="java">String getCategoryKey();
+</code></pre>
+
+<blockquote>
+<p>This returns a unique identifier for the screen navigation category used by our screen.</p>
+</blockquote>
+<pre><code class="java">String getEntryKey();
+</code></pre>
+
+<blockquote>
+<p>This returns a unique identifier for the screen navigation entry. It returns the same value as <code>getCategoryKey</code>.</p>
+</blockquote>
+<pre><code class="java">String getScreenNavigationKey();
+</code></pre>
+
+<blockquote>
+<p>This is the same method as <code>getScreenNavigationKey</code> for the <code>ScreenNavigationCategory</code> interface. We implemented this method by returning the string value <code>"cp.definition.general"</code>.</p>
+</blockquote>
+<pre><code class="java">void render(
+        HttpServletRequest var1, HttpServletResponse var2)
+    throws IOException;
+</code></pre>
+
+<blockquote>
+<p>This is where we add the code to render a customized screen for our product type.</p>
+</blockquote>
+<h3 id="complete-the-product-type">Complete the Product Type</h3>
+<p>The product type is comprised of backend logic for deleting the product, logic to render the screen in the navigation menu, and the custom screen itself. Do the following:</p>
+<ul>
+<li><a href="#configure-the-servletcontext-for-the-module">Configure the <code>ServletContext</code> for the module.</a></li>
+<li><a href="#implement-the-screennavigationentrys-render-method">Implement the <code>ScreenNavigationEntry</code>'s <code>render</code> method.</a></li>
+<li><a href="#override-the-screennavigationentrys-isvisible-method">Override the <code>ScreenNavigationEntry</code>'s <code>isVisible</code> method.</a></li>
+<li><a href="#add-the-product-type-deletion-logic-to-deletecpdefinition">Add the product type deletion logic to <code>deleteCPDefinition</code>.</a></li>
+<li><a href="#add-a-jsp-to-render-the-custom-screen">Add a JSP to render the custom screen.</a></li>
+<li><a href="#add-the-language-key-to-languageproperties">Add the language key to <code>Language.properties</code>.</a></li>
+</ul>
+<h4 id="configure-the-servletcontext-for-the-module">Configure the <code>ServletContext</code> for the Module</h4>
+<p>Define the <code>ServletContext</code> in our <code>ScreenNavigationEntry</code> class using the symbolic name of our bundle so that it can find the JSP in our module:</p>
+<pre><code class="java">@Reference(target = &quot;(osgi.web.symbolicname=com.acme.c1n4.web)&quot;)
+private ServletContext _servletContext;
+</code></pre>
+
+<blockquote>
+<p>The value we set for <code>osgi.web.symbolicname</code> matches the value for <code>Bundle-SymbolicName</code> in our <a href="liferay-c1n4.zip/c1n4-web/bnd.bnd">bnd.bnd file</a>. These values must match for the <code>ServletContext</code> to locate the JSP.</p>
+<p>We declare a unique value for <code>Web-ContextPath</code> in our bnd.bnd file so the <code>ServletContext</code> is correctly generated. In our example, <code>Web-ContextPath</code> is set to <code>/c1n4-web</code>. See <a href="liferay-c1n4.zip/c1n4-web/bnd.bnd">bnd.bnd</a> for a reference on these values.</p>
+</blockquote>
+<h4 id="implement-the-screennavigationentrys-render-method">Implement the <code>ScreenNavigationEntry</code>'s <code>render</code> Method</h4>
+<pre><code class="java">@Override
+public void render(
+        HttpServletRequest httpServletRequest,
+        HttpServletResponse httpServletResponse)
+    throws IOException {
+
+    _jspRenderer.renderJSP(
+        _servletContext, httpServletRequest, httpServletResponse,
+        &quot;/edit_product.jsp&quot;);
+}
+</code></pre>
+
+<blockquote>
+<p>Use a <code>JSPRenderer</code> to render the JSP for our product type's custom screen (in our example, <a href="liferay-c1n4.zip/c1n4-web/src/main/resources/META-INF/resources/edit_product.jsp">edit_product.jsp</a>). Provide the <code>ServletContext</code> as a parameter to find the JSP we have created.</p>
+</blockquote>
+<h4 id="override-the-screennavigationentrys-isvisible-method">Override the <code>ScreenNavigationEntry</code>'s <code>isVisible</code> Method</h4>
+<pre><code class="java">@Override
+public boolean isVisible(User user, CPDefinition context) {
+    if (context == null) {
+        return false;
+    }
+
+    String productTypeName = context.getProductTypeName();
+
+    if (productTypeName.equals(getCategoryKey())) {
+        return true;
+    }
+
+    return false;
+}
+</code></pre>
+
+<blockquote>
+<p>Implement logic here to determine when to show the custom screen. In our example, we only check whether the product type from the <code>CPDefinition</code> matches our example product type.</p>
+</blockquote>
+<h4 id="add-the-product-type-deletion-logic-to-deletecpdefinition">Add the Product Type Deletion Logic to <code>deleteCPDefinition</code></h4>
+<p>Our example does not require any logic to be added to <code>deleteCPDefinition</code>.</p>
+<h4 id="add-a-jsp-to-render-the-custom-screen">Add a JSP to Render the Custom Screen</h4>
+<p>In our example, we are adding a JSP with a text field.</p>
+<pre><code class="jsp">&lt;%@ taglib uri=&quot;http://liferay.com/tld/aui&quot; prefix=&quot;aui&quot; %&gt;
+
+&lt;aui:input name=&quot;exampleInput&quot; type=&quot;text&quot; /&gt;
+</code></pre>
+
+<blockquote>
+<p>Implement any other inputs or actions desired on the custom screen here, such as a form or MVC action command. See <a href="https://help.liferay.com/hc/en-us/articles/360018165091-MVC-Action-Command">MVC Action Command</a> for more information on adding an MVC action command that can be accessed from the JSP.</p>
+</blockquote>
+<h4 id="add-the-language-key-to-languageproperties">Add the Language Key to <code>Language.properties</code></h4>
+<p>Add the language key and its value to a <a href="liferay-c1n4.zip/c1n4-web/src/main/resources/content/Language.properties">Language.properties</a> file within our module:</p>
+<pre><code>example=Example
+</code></pre>
+
+<blockquote>
+<p>See <a href="https://help.liferay.com/hc/en-us/articles/360018168251-Localizing-Your-Application">Localizing Your Application</a> for more information.</p>
+</blockquote>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations! You now know the basics for implementing the <code>CPType</code> interface, and have implemented a new product type with its own custom screen to Liferay Commerce.</p>
+<h2 id="additional-information">Additional Information</h2>
+<ul>
+<li><a href="../../../user-guide/catalog/creating-and-managing-products/product-types/introduction-to-product-types/README.md">Introduction to Product Types</a></li>
+<li><a href="https://help.liferay.com/hc/en-us/articles/360018168251-Localizing-Your-Application">Localizing Your Application</a></li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../" title="Introduction to the Liferay Commerce Developer Guide" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Introduction to the Liferay Commerce Developer Guide
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../implementing-a-custom-checkout-step/" title="Implementing a Custom Checkout Step" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Implementing a Custom Checkout Step
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - Liferay, Inc.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+    
+  </body>
+</html>
